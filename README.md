@@ -48,3 +48,9 @@
 * docker network disconnect: 연결 및 연결 해제 명령어.
 * docker container run -d --name (container name) --network my_app_net nginx: 컨테이너를 my_app_net이라는 Docker 네트워크에 연결한다. 이를 이용해 같은 네트워크에 있는 컨테이너끼리 이름을 통해 통신할 수 있다.
 * docker network connect (netwrok name) (container name): 동일 네트워크에 있는 것을 컨테이너 안에서 연결시킨다.
+* docker container exec -it (container name1) ping (container name2): name1 컨테이너에서 name2 컨테이너로의 네트워크 연결 상태를 확인한다.
+* docker container run -d --net dude --net-alias search elasticsearch:2: 새로운 컨테이너를 백그라운드에서 실행한다. dude라는 사용자 정의 docker 네트워크에 컨테이너를 연결하고 search라는 네트워크 별칭을 부여한다. 이것은 elasticsearch의 2버전 기반으로 컨테이너가 생성된다.
+* docker container run --rm --net dude centos curl -s search:9200: 
+    - curl -s search:9200: centos 컨테이너에서 curl 명령을 실행하여 search라는 컨테이너에 포트9200으로 http요청을 보낸다.
+
+
